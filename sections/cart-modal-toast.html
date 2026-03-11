@@ -1,0 +1,60 @@
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-head">
+    <h3>🛒 Your Cart</h3>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty">
+      <div class="empty-icon">🛒</div>
+      <p>Your cart is empty.<br>Add some delicious meals!</p>
+    </div>
+  </div>
+  <div class="cart-foot" id="cartFoot" style="display:none">
+    <div class="cart-total">
+      <span>Total Amount</span>
+      <span id="cartTotal">₹0</span>
+    </div>
+    <button class="checkout-btn" onclick="openCheckout()">
+      Proceed to Checkout →
+    </button>
+  </div>
+</div>
+
+<!-- VIEW MORE MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modalTitle">Full Ingredients</h3>
+      <button class="modal-close" onclick="document.getElementById('modalOverlay').classList.remove('open')">✕</button>
+    </div>
+    <ul class="modal-items" id="modalItems"></ul>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkoutOverlay" onclick="closeCheckout(event)">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>Checkout Details</h3>
+      <button
+        class="modal-close"
+        onclick="document.getElementById('checkoutOverlay').classList.remove('open')"
+      >
+        ✕
+      </button>
+    </div>
+
+    <form id="checkoutForm" class="checkout-form">
+      <input type="text" id="customerName" placeholder="Full Name" required />
+      <input type="tel" id="customerPhone" placeholder="Phone Number" required />
+      <input type="text" id="addressLine1" placeholder="Address Line 1" required />
+      <input type="text" id="addressLine2" placeholder="Address Line 2" />
+      <input type="text" id="city" placeholder="City" required />
+      <input type="text" id="pincode" placeholder="Pincode" required />
+
+      <button type="submit" class="checkout-btn">Place Order</button>
+    </form>
+  </div>
+</div>
