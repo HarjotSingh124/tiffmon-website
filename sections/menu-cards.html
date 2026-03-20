@@ -1,0 +1,37 @@
+<!-- MENU HEADER BANNER -->
+<div class="menu-header-bar">
+  <h1>Browse Menu 🍽️</h1>
+  <div class="search-bar">
+    <span class="search-icon">🔍</span>
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search meals, items..."
+      oninput="searchMeals(this.value)"
+    />
+    <button onclick="searchMeals(document.getElementById('searchInput').value)">
+      Search
+    </button>
+  </div>
+</div>
+
+<!-- CATEGORY TABS -->
+<div class="category-bar">
+  <button class="cat-tab active" onclick="filterCat(this,'all')">🍽️ All</button>
+  <button class="cat-tab" onclick="filterCat(this,'combo')">🤝 Combos</button>
+  <button class="cat-tab" onclick="filterCat(this,'main')">🍛 Main</button>
+  <button class="cat-tab" onclick="filterCat(this,'paratha')">🫓 Paratha Combos</button>
+  <button class="cat-tab" onclick="filterCat(this,'sides')">🥗 Sides</button>
+  <button class="cat-tab" onclick="filterCat(this,'dessert')">🍮 Dessert</button>
+</div>
+
+<!-- MEAL CARDS GRID -->
+<div class="menu-content">
+  <div class="section-label">
+    <h2 id="sectionTitle">All Meals</h2>
+    <p id="sectionCount">Loading meals...</p>
+  </div>
+
+  <!-- Firebase meals will be inserted here -->
+  <div class="menu-cards-grid" id="menuGrid"></div>
+</div>

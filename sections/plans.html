@@ -1,0 +1,36 @@
+<section class="plans-section" id="plans-anchor">
+  <div class="section-tag">Subscription Plans</div>
+  <h2 class="section-title">Save More, Eat Better</h2>
+  <p class="section-sub">
+    Choose a plan that fits your life. Fresh tiffin delivered daily — no cooking, no stress, no compromise.
+  </p>
+
+  <div class="plans-grid" id="plansGrid"></div>
+</section>
+
+<!-- SUBSCRIPTION CHECKOUT MODAL -->
+<div class="modal-overlay" id="subscriptionOverlay" onclick="closeSubscriptionCheckout(event)">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="subscriptionModalTitle">Subscribe Plan</h3>
+      <button
+        class="modal-close"
+        onclick="document.getElementById('subscriptionOverlay').classList.remove('open')"
+      >
+        ✕
+      </button>
+    </div>
+
+    <form id="subscriptionForm" class="checkout-form">
+      <input type="text" id="subCustomerName" placeholder="Full Name" required />
+      <input type="tel" id="subCustomerPhone" placeholder="Phone Number" required />
+      <input type="text" id="subAddressLine1" placeholder="Address Line 1" required />
+      <input type="text" id="subAddressLine2" placeholder="Address Line 2" />
+      <input type="text" id="subCity" placeholder="City" required />
+      <input type="text" id="subPincode" placeholder="Pincode" required />
+      <input type="date" id="subStartDate" required />
+
+      <button type="submit" class="checkout-btn">Confirm Subscription</button>
+    </form>
+  </div>
+</div>

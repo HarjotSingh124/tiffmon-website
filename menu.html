@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiffmon – Menu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-left">
+      <a class="logo" href="index.html">
+        <div class="logo-icon">🍛</div>
+        Tiff<span>mon</span><div class="logo-dot"></div>
+      </a>
+      <div class="nav-divider"></div>
+      <button class="nav-location">📍 Noida, Sector 62 ▾</button>
+    </div>
+
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html" id="nav-menu">Menu</a></li>
+      <li><a href="index.html#plans-anchor">Plans</a></li>
+      <li><a href="index.html#why-anchor">Why Us</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="nav-btn nav-signin">👤 Sign In</button>
+      <button class="nav-btn nav-cart" onclick="toggleCart()">
+        🛒 Cart <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="menu-header-bar">
+    <h1>Browse Menu 🍽️</h1>
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search meals, items..."
+        oninput="searchMeals(this.value)"
+      />
+      <button onclick="searchMeals(document.getElementById('searchInput').value)">
+        Search
+      </button>
+    </div>
+  </div>
+
+  <div class="category-bar">
+    <button class="cat-tab active" onclick="filterCat(this,'all')">🍽️ All</button>
+    <button class="cat-tab" onclick="filterCat(this,'combo')">🤝 Combos</button>
+    <button class="cat-tab" onclick="filterCat(this,'main')">🍛 Main</button>
+    <button class="cat-tab" onclick="filterCat(this,'paratha')">🫓 Paratha Combos</button>
+    <button class="cat-tab" onclick="filterCat(this,'sides')">🥗 Sides</button>
+    <button class="cat-tab" onclick="filterCat(this,'dessert')">🍮 Dessert</button>
+  </div>
+
+  <div class="menu-content">
+    <div class="section-label">
+      <h2 id="sectionTitle">All Meals</h2>
+      <p id="sectionCount">Loading meals...</p>
+    </div>
+
+    <!-- Firebase meals will be injected here -->
+    <div class="menu-cards-grid" id="menuGrid"></div>
+  </div>
+
+ <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-head">
+    <h3>🛒 Your Cart</h3>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty">
+      <div class="empty-icon">🛒</div>
+      <p>Your cart is empty.<br>Add some delicious meals!</p>
+    </div>
+  </div>
+
+  <div class="cart-foot" id="cartFoot" style="display:none">
+    <div class="cart-total">
+      <span>Total Amount</span>
+      <span id="cartTotal">₹0</span>
+    </div>
+    <button class="checkout-btn" onclick="openCheckout()">Proceed to Checkout →</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modalTitle">Full Ingredients</h3>
+      <button class="modal-close" onclick="document.getElementById('modalOverlay').classList.remove('open')">✕</button>
+    </div>
+    <ul class="modal-items" id="modalItems"></ul>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkoutOverlay" onclick="closeCheckout(event)">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>Checkout Details</h3>
+      <button class="modal-close" onclick="document.getElementById('checkoutOverlay').classList.remove('open')">✕</button>
+    </div>
+
+    <form id="checkoutForm" class="checkout-form">
+      <input type="text" id="customerName" placeholder="Full Name" required />
+      <input type="tel" id="customerPhone" placeholder="Phone Number" required />
+      <input type="text" id="addressLine1" placeholder="Address Line 1" required />
+      <input type="text" id="addressLine2" placeholder="Address Line 2" />
+      <input type="text" id="city" placeholder="City" required />
+      <input type="text" id="pincode" placeholder="Pincode" required />
+
+      <button type="submit" class="checkout-btn">Place Order</button>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast">✅ <span id="toastMsg">Done!</span></div>
+
+<script type="module" src="js/main.js"></script>
+<script type="module" src="js/menu-firebase.js"></script>
+</body>
+</html>
