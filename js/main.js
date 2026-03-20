@@ -209,7 +209,7 @@
 
 
 
-
+console.log("UPDATED MAIN JS");
 import { db } from "./firebase-config.js";
 import {
   collection,
