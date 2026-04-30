@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tiffmon Subscriber Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="login-page">
+
+  <div class="login-container">
+
+    <!-- LOGO / TITLE -->
+    <div class="login-header">
+      <h1>🍛 Tiffmon</h1>
+      <p>Subscriber Login</p>
+    </div>
+
+    <!-- LOGIN CARD -->
+    <div class="login-card">
+
+      <form id="loginForm">
+
+        <div class="input-group">
+          <label>Subscriber ID</label>
+          <input
+            type="text"
+            id="subscriberId"
+            placeholder="Enter your ID"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="subscriberPassword"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <button type="submit" class="login-btn">
+          Login
+        </button>
+
+        <p id="loginError" class="login-error"></p>
+
+      </form>
+
+    </div>
+
+    <!-- BACK BUTTON -->
+    <button class="back-btn" onclick="goBack()">
+      ← Back to Website
+    </button>
+
+  </div>
+
+  <!-- JS -->
+  <script type="module" src="js/login.js"></script>
+
+  <script>
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>
